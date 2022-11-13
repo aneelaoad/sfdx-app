@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Pokemon Trainer" icon-name="standard:people">
+        <template if-true={data}>
+
+        <div class="slds-var-m-around_medium">
+            <lightining-record-form object-api-name="Contact" record-id={trainerId}
+            layout-type="compact"
+            >
+
+            </lightining-record-form>
+    </template>
+    <template if-false={data}>
+        <h1>Data not found</h1>
+    </template>
+        </div>
+    </lightning-card>
+</template>
