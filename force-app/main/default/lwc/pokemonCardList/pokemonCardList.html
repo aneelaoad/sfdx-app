@@ -1,5 +1,19 @@
 <template>
     <lightning-card title="Pokemons" icon-name="utility:animal_and_nature">
+
+        <!-- -------SEARCH BAR STARTS------------ -->
+        <lightning-input type="search" onchange={handleSearch} 
+        class="slds-var-p-around_medium slds-var-m-bottom_medium"
+        variant="label-hidden"
+        aria-placeholder="Search Pokemons"
+        value={searchKeywords}
+        >
+
+        </lightning-input>
+        {words}
+<hr>
+        <!-- ------------SEARCH BAR ENDS------------- -->
+
         <template if:true={pokemons}>
             <lightning-layout multiple-rows="true" >
                 <template for:each={pokemons} for:item="pokemon" for:index="index">
@@ -7,13 +21,13 @@
 
                         <!-- -----Pokemon card starts------- -->
                         <lightning-card title={pokemon.Name} class="pokemon_card">
-                            <div class="slds-var-p-horizontal_medium">
+                            <div class="slds-var-p-horizontal_medium pokemon_card">
                                 <div class="slds-grid slds-wrap">
                                     <div class="slds-col">
                                         <div class="slds-size_8-of-12">
                                              <img src={pokemon.Img_URL__c} alt="pokemon img" class="pokemon_imgs">
                                         </div>
-                                        <div class="slds-size_8-of-12">
+                                        <div class="slds-size_8-of-12 pokemon_data">
                                            <h1>{pokemon.Trainer__r.Name}</h1>
                                            <h3>{pokemon.Height__c}</h3>  
                                            <h3>pokemon.Location__c</h3>
