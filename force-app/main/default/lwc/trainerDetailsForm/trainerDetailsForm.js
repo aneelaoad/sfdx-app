@@ -8,12 +8,13 @@ export default class TrainerDetailsForm extends LightningElement {
 
     @api recordId;
 
-
     @wire(getRecord, {recordId: '$recordId', fields : pokemonFields})
     pokemons
     
-
     get trainerId(){
-        return getFieldValue(this.pokemons.data,TRAINER_FIELD )
+        return getFieldValue(this.pokemons.data, TRAINER_FIELD )
+    console.log("Pokemon" +pokemonFields);
+
     }
 }
+
