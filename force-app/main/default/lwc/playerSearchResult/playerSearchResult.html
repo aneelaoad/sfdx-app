@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Players Search Result">
+        <template for:each={data} for:item="lo">
+            <li key={lo.Id}>
+                {lo.Name}
+            </li>
+        </template>
+    </lightning-card>
+</template>
