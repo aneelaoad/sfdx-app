@@ -1,0 +1,46 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card title="Enhanced product recommender">
+        <lightning-layout>
+
+            <lightning-layout-item padding="around-small" margin="around-medium">
+                <div class="attribute-container">
+                    <template for:each={attributes} for:item="attribute">
+                        <button key={attribute.Name} 
+                        class="attributes" 
+                        label="product attributes" 
+                        value={attribute.Name} 
+                        onclick={handleAtrributes}>
+                        {attribute.Name}
+                        </button>
+                  </template>
+                </div>
+
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout>
+            <lightning-layout-item>   
+            <div>
+                <template for:each={tags} for:item="tag">
+                    <lightning-input key={tag.Name} class="slds-var-p-left_xx-large" type="checkbox" data-id="checkbox" label={tag.Name} ></lightning-input>
+                </template>
+            </div>
+            <!-- <lightning-input class="slds-var-p-left_xx-large" type="checkbox" label="checkbox Select All" onchange={handleChange} ></lightning-input>
+
+            <lightning-input class="slds-var-p-left_xx-large" type="checkbox" data-id="checkbox" label="checkbox" value="" ></lightning-input>
+            <lightning-input class="slds-var-p-left_xx-large" type="checkbox" data-id="checkbox" label="checkbox" ></lightning-input>
+            <lightning-input class="slds-var-p-left_xx-large" type="checkbox" data-id="checkbox" label="checkbox" ></lightning-input> -->
+               
+            </lightning-layout-item>
+            <!-- <lightning-layout-item>
+                <button onclick={getNames} label="Check">CHECK </button>
+                <template if:true={names} for:each={names} for:item="name" >
+                   <li key={name}>
+                        yes {name.Name}
+                   </li>
+                </template>
+            </lightning-layout-item> -->
+        </lightning-layout>
+    </lightning-card>
+</template>

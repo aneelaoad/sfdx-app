@@ -4,6 +4,7 @@ import getCricketerList from '@salesforce/apex/CricketerController.getCricketerL
 export default class PlayerSearchResult extends LightningElement {
 
     cricketersNationality = ''
+    selectedCard;
     list;
     @wire(getCricketerList)
     playersList({data, error}){
@@ -14,5 +15,19 @@ export default class PlayerSearchResult extends LightningElement {
             this.list = data
             console.log("LIST" +JSON.stringify(this.list) );
         }
+    }
+
+    handleCardClick(event){
+        this.selectedCard = event.currentTarget.dataset.id
+        this.selectedCard.classList.addClass('selected');
+        let boxClass = this.template.querySelector('.selected')
+
+        if(boxClass > 0){
+            this.removeClass();
+        }
+    }
+
+    removeClass(){
+        this.template.querySelectorAll('.selected')[0].classList.remove('selected')
     }
 }

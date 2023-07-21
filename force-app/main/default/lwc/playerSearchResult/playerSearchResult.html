@@ -1,9 +1,22 @@
 <template>
     <lightning-card title="Players Search Result">
-        <template for:each={data} for:item="lo">
-            <li key={lo.Id}>
-                {lo.Name}
-            </li>
-        </template>
+
+        <lightning-layout multiple-rows="true" class="row">
+               <template if:true={list}>
+                <template for:each={list} for:item="lo">
+                    <lightning-layout-item size="4" key={lo.Id}   class="card">
+                        <div  onclick={handleCardClick} data-id={lo.Id}>
+                         <h1> {lo.Name}</h1>
+                      <img src={lo.Image_URL__c} alt="" srcset="">
+                      <div class="card-footer">
+                        <h2>{lo.Runs__c}</h2>
+                        <h2>{lo.Age__c}</h2>
+                        <h2>{lo.Nationality__c}</h2>
+                      </div>
+                    </div>
+                   </lightning-layout-item>
+                    </template>
+                </template>            
+        </lightning-layout>               
     </lightning-card>
 </template>
