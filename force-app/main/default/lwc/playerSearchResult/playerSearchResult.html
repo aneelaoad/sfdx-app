@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Players Search Result">
+        
+
+            <div class="slds-grid slds-gutters">
+                <template if:true={list}>
+                     <template for:each={list} for:item="player">
+                        <div class="slds-col" key={player.Id}>
+                            <div class="slds-card" onclick={handleCardClick} data-id={player.Id}>
+                                <div class="slds-card__header">
+                                    {player.Name}
+                                </div>
+                                <div class="slds-card__body slds-card__body_inner">
+                                    <img src={player.Image_URL__c} alt="">
+                                </div>
+                                <footer class="slds-card__footer">
+                                   <p>Runs: {player.Runs__c}</p>
+                                   <p>Nationality: {player.Nationality__c}</p>
+                                </footer>
+                            </div>
+                        </div>
+                     </template>
+                   
+                
+            </template>
+            </div>
+
+
+       
+    </lightning-card>
+</template>
